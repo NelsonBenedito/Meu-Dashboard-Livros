@@ -118,27 +118,27 @@ export default function Dashboard() {
   if (loading) return <div className="p-10 text-center text-blue-500 italic font-black animate-pulse">Sincronizando Ciclo Acadêmico...</div>;
 
   return (
-    <div className="min-h-screen w-full bg-[#F8FAFC] text-[#1E293B]" style={{ fontFamily: 'system-ui', fontSize: '18px' }}>
+    <div className=" flex flex-col text-[#1E293B]" style={{ fontFamily: 'system-ui', fontSize: '18px' }}>
       
-      <nav className="w-full bg-white border-b border-slate-300 px-8 py-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
-        <div className="flex items-center gap-12">
-          <div className="flex items-center gap-4 font-bold italic" style={{ fontFamily: 'Calibri' }}>
+      <nav className="w-full bg-gray-50/70 backdrop-blur-sm border-b border-slate-300 px-8 py-6 sticky justify-between items-center  top-0 z-50 shadow-sm">
+      <div className="md:flex items-center gap-4 font-bold italic" style={{ fontFamily: 'Calibri' }}>
             <div className="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center text-white italic shadow-lg"><BookOpen size={28} /></div>
-            <span className="text-3xl text-slate-900 tracking-tight">Leitura 2026</span>
-          </div>
-          <div className="flex bg-slate-100 p-2 rounded-3xl border border-slate-200">
+            <span className="hidden md:flex text-3xl text-slate-900 tracking-tight">Leitura 2026</span>
+        </div>
+        <div className="flex items-center gap-12">
+          <div className="w-full flex p-2 rounded-3xl border border-slate-200">
             <NavBtn label="Painel" active={view === 'dashboard'} onClick={() => setView('dashboard')} />
             <NavBtn label="Estante" active={view === 'library'} onClick={() => setView('library')} />
             <NavBtn label="Dados" active={view === 'stats'} onClick={() => setView('stats')} />
           </div>
-        </div>
-        <div className="flex items-center gap-6">
+          <div className="flex items-center">
           {quarterGoalMet && isQuarterEnd && (
             <button onClick={() => setIsReportOpen(true)} className="flex items-center gap-3 bg-emerald-100 text-emerald-700 px-6 py-3 rounded-2xl font-black italic animate-bounce border border-emerald-200">
               <FileText size={20}/> RELATÓRIO Q{currentQuarter} PRONTO
             </button>
           )}
           <div className="w-16 h-16 bg-blue-50 rounded-[1.5rem] flex items-center justify-center text-blue-700 font-black italic border border-blue-100 text-2xl">LT</div>
+          </div>
         </div>
       </nav>
 
